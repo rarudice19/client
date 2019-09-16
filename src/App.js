@@ -1,24 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import {Button, Label, Input, Container} from 'reactstrap';
 
 function App() {
+  const [genre, setGenre] = useState('');
+
+  const games = () => {
+    console.log(genre)
+    if (genre === 'RPG'){
+      console.log(`RPGs (Role Playing Games): `)
+    }
+    else if (genre === 'Action'){
+      console.log(`Action Games: `)
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Nintendo Switch Eshop Simplifier</h1>
+      <hr />
+      <Container>
+        <Label>Enter your desiered genre to search by.</Label>
+        <Input name="genre" value={genre} onChange={(e) => setGenre(e.target.value)} />
+        <Button onClick={games}>Search</Button>
+      </Container>
+      <br />
+      <br />
+      <Container>
+        <Label>Genre Bank</Label>
+        <div>
+          <ul>
+            <li>Action</li>
+            <li>Adventure</li>
+            <li>Fantasy</li>
+            <li>Party</li>
+            <li>Platformer</li>
+            <li>Racing</li>
+            <li>RPG</li>
+            <li>Strategy</li>
+          </ul>
+        </div>
+      </Container>     
     </div>
   );
 }
