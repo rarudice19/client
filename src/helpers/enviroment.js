@@ -7,7 +7,7 @@ switch (window.location.hostname) {
         APIURL = 'http://localhost:3001';
         break;
     // this is the deployed react application
-    case 'kcp-pieclient.herokuapp.com':
+    case 'https://switchgames.herokuapp.com/ ':
         // this is the full url of your deployed API
         APIURL = 'https://switchgamesserver.herokuapp.com'
 }

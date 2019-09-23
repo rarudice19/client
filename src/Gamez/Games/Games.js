@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './Games.css';
 import Game from '../Game/Game';
-import APIURL from '../helpers/enviroment';
+import APIURL from '../../helpers/enviroment';
 
 
 
