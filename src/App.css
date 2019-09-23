@@ -2,6 +2,16 @@ body {
   background-color: #f77b18;
   color: #ffffff;
   font: 24px "LatoRegular";
+  text-align: center;
 
+}
+
+.biggo {
+  width: 180px;
+  height: 45px;
+}
+
+.gamez {
+  color: black;
 }
 
