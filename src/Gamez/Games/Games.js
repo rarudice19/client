@@ -25,7 +25,7 @@ import APIURL from '../../helpers/enviroment';
     },[])
 
     let fetchGames = () => {
-      let url= `${APIURL}${x}`;
+      let url= `https://switchgamesserver.herokuapp.com/games/${x}`;
       
 
 

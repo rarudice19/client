@@ -21,7 +21,7 @@ const Auth = (props) => {
 
     let handleSubmit = (event) => {
         event.preventDefault();
-        let url = login ? `${APIURL}/auth/signin` : `${APIURL}/auth/signup`
+        let url = login ? 'https://switchgamesserver.herokuapp.com/auth/signin' : 'https://switchgamesserver.herokuapp.com/auth/signup'
 
         fetch(url, {
             method: 'POST',
