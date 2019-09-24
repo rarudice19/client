@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 // import Gamez from './Gamez/Gamez';
 import Auth from './Auth/Auth';
-import Gamez from './Gamez/Gamez';
+import Games from './Gamez/Games/Games';
 
 function App() {
 
@@ -14,7 +14,9 @@ function App() {
     
   return (
     <div className="bg">
-      {token ? <Gamez /> : <Auth  tokenHandler={storeSessionToken}/>}
+        <h1>Nintendo Switch Eshop Simplifier</h1>
+        <hr />
+      {token ? <Games /> : <Auth  tokenHandler={storeSessionToken}/>}
     </div>
 
 

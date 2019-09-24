@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Game = (props) => {
+const Game2 = (props) => {
 
     return ( 
         <tr key={props.index}>
@@ -13,4 +13,4 @@ const Game = (props) => {
     )
 }
 
-export default Game;
+export default Game2;
