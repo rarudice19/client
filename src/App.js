@@ -3,20 +3,32 @@ import './App.css';
 // import Gamez from './Gamez/Gamez';
 import Auth from './Auth/Auth';
 import Games from './Gamez/Games/Games';
+import Navbar from './Navbar/Navbar';
 
 function App() {
 
   const [token, setToken] = useState('')
 
-  let storeSessionToken = (token) => {
-    setToken(token)
+  // let storeSessionToken = (token) => {
+  //   setToken(token)
+  // }
+
+  let updateToken = (newToken) => {
+    localStorage.setItem("token", newToken)
+    setToken(newToken)
+  }
+
+  let clearToken = () => {
+    localStorage.clear()
+    setToken('')
   }
     
   return (
     <div className="bg">
-        <h1>Nintendo Switch Eshop Simplifier</h1>
+      <Navbar logout={clearToken} />
+            
         <hr />
-      {token ? <Games /> : <Auth  tokenHandler={storeSessionToken}/>}
+      {token ? <Games /> : <Auth  tokenHandler={updateToken}/>}
     </div>
 
 

@@ -1,66 +1,122 @@
 import React, {useState, useEffect} from 'react';
 import './Games.css';
-import {Container, Label} from 'reactstrap';
-import Game from '../Game/Game';
-import Game2 from '../Game/Game2';
+import {Container, Label,Button} from 'reactstrap';
+
+import img from '../../Assets/hyruleWarriors.png'
 import APIURL from '../../helpers/enviroment';
-import Dropdown from '../../Dropdown';
+
 
 
 
   const Games = () => {
-
-    let [game, setGame] = useState([]);
-    // let [game2, setGame2] = useState([]);
+    const [genre, setGenre] = useState('');
+    let [games, setGames] = useState([]);
     
-
 
     useEffect(() => {
       fetchGames();
     },[])
 
+    
+  
 
     let fetchGames = () => {    
       
       fetch(`https://switchgamesserver.herokuapp.com/games/`)
       .then(res => res.json())
       .then(data => {
-        setGame(data)
+        // arrgh.push(data)
+        console.log(data)
+        setGames(data);
+
+          // let randomGame = arrgh[0].filter(grep => `${grep.gameGenre}` === `${genre}`);
         
+          // let x = (Math.floor((Math.random()) * randomGame.length ));
+          
+
+        
+
+        // setGame(arrgh[0][x]);
+          
+      
       })
-      // fetch(`https://switchgamesserver.herokuapp.com/games/4`)
-      // .then(res => res.json)
-      // .then(data => {
-      //   setGame2(data)
-        
-      // })
+      
       .catch(err => console.error({message: err}))
-    }
+    
+      console.log(genre);
+      
+     
+      
+
+     
+      }
+
+      let filteredGames = games.filter(grep => `${grep.gameGenre}` === `${genre}`);
+
+      let x = (Math.floor((Math.random()) * filteredGames.length ));
+
+      let singles = filteredGames.filter(gar =>  gar === filteredGames[x]);
+
 
       return(
         <Container>   
-        <Label>Select your desiered genre to search by:</Label> 
-        <Dropdown />
+        <h1 className="seperate">Need help finding your next Nintendo Switch game? You've come to the right place!</h1>
+        <Label className="lab">Simply select your desiered genre to search by:</Label> 
+        <Container>
+        <select value={genre} onChange={(e) => setGenre(e.target.value)} className="biggo">
+            <option style={{"display": "none"}}> -- select an option -- </option>
+            <option>Action</option>
+            <option>Fighting</option>
+            <option>Hack and Slash</option>
+            <option>Party</option>
+            <option>Platformer</option>
+            <option>Racing</option>
+            <option>RPG</option>
+            <option>Shooter</option>
+        </select>
+        <br />
+        </Container>
+        <br />
+        <br /> 
+        <br /> 
+        <h3> The next game you should buy is:</h3>
         <table>
             <thead>
-                <tr>
-                    <td>ID</td>
-                    <td>Name of Game</td>
+                <tr>                   
+                    <td>Game</td>
                     <td>Genre</td>
-                    <td>Price</td>
+                    <td>Price (in USD)</td>
                     <td>Developer</td>
                 </tr>
             </thead>
             <tbody>
-              {/* <Game game={game} /> */}
-              {/* <Game2 game2={game2} /> */}
-                {game.map((game, index) => {
-                   return (
-                    <Game game={game} key={index} index={index}/> 
-                   )   
-                })}
+
+               {singles.map(game => {
+                 
+                 
+                  return (
+                    <tr>
+                    <td>{game.nameOfGame}</td>
+                    <td>{game.gameGenre}</td>
+                    <td>{game.gamePrice}</td>
+                    <td>{game.developer}</td>
+                    </tr>  
+                  )
+
+                })
+                 
+              }
+               
+              
+               
             </tbody>
         </table>
+        <h3>Already have this one? Click this button to search again within the given genre:</h3>
+        {/* {
+          filteredGames.splice(singles, 1)
+        } */}
+        <Button  onClick={fetchGames} className="biggo2">Search</Button>
+        
         </Container>
       )
   }

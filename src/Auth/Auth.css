@@ -1,11 +1,23 @@
 .card-like {
     padding: 1em;
-    background-color: whitesmoke;
+    background: linear-gradient(90deg, #00c3e3 10%, black 10%, black 90%, #ff4554 90%);
     border-radius: 15px;
-    width: 25vw;
+    width: 50vw;
     margin: 25vh auto;
     text-align: center;
     display: flex;
     flex-direction: column;
-    color: black;
+    color: white;
+}
+
+.display-block {
+    width: 70%;
+    margin: 0 0 0 14vh;
+  
+}
+.display-button {
+    width: 70.4%;
+    margin: 0 0 0 14vh;
+    height: 50px;
+    font-size: 16px;
 }

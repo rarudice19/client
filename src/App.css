@@ -3,13 +3,9 @@ body {
   color: #ffffff;
   font: 24px "LatoRegular";
   text-align: center;
-
+  overflow-y: hidden;
 }
 
-.biggo {
-  width: 180px;
-  height: 45px;
-}
 
 .gamez {
   color: black;

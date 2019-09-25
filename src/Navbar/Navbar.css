@@ -1,0 +1,14 @@
+nav {
+    margin: 0;
+    background-color: #f77b18;
+    color: white;
+    font-size: 24px;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nav-img {
+    height: 100%;
+}

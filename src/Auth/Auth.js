@@ -41,6 +41,46 @@ const Auth = (props) => {
             props.tokenHandler(data.sessionToken)
         })
     }
+
+        function deleteItemById() { //1
+        const fetch_url = `https://switchgamesserver.herokuapp.com/auth/`
+        const accessToken = localStorage.getItem('token')
+    
+        const response = fetch(fetch_url, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': accessToken
+            }
+        })
+            .then(response => {
+                console.log(response);//2//3
+            })
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     return (
         <form className="card-like">
             <h1>{ login ? 'Log In' : 'Sign Up' }</h1>
@@ -59,9 +99,10 @@ const Auth = (props) => {
                     <input className="display-block" type="text" name="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} />
                 </React.Fragment>
         }
-
-            <button onClick= {(e) => changeLogin(e) }>{ login ? 'Sign Up' : 'Log In' }</button>
-            <button type="submit" onClick = {(e) => handleSubmit(e)}>Submit</button>
+            <br />
+            <button className ="display-button" onClick= {(e) => changeLogin(e) }>{ login ? 'Sign Up' : 'Log In' }</button>
+            <br />
+            <button className ="display-button" type="submit" onClick = {(e) => handleSubmit(e)}>Submit</button>
         </form>
     )
 }
